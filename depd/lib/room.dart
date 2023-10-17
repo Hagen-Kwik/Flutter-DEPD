@@ -1,4 +1,8 @@
+// ignore_for_file: sized_box_for_whitespace, prefer_const_constructors
+
+import 'package:depd/booking.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class RoomPage extends StatefulWidget {
   const RoomPage({super.key});
@@ -117,12 +121,24 @@ class _RoomPage extends State<RoomPage> {
                           ))
                     ])),
                 Flexible(
-                    flex: 1,
-                    child: Container(
-                      color: Colors.green,
-                      width: double.infinity,
-                      height: double.infinity,
-                    ))
+                  flex: 1,
+                  child: Container(
+                    width: double.infinity,
+                    height: double.infinity,
+                    child: ElevatedButton.icon(
+                        onPressed: () {
+                          Fluttertoast.showToast(
+                              msg: "Welcome to booking page",
+                              backgroundColor: Colors.green);
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) {
+                            return BookingPage();
+                          }));
+                        },
+                        icon: Icon(Icons.check_box),
+                        label: Text("Book Now")),
+                  ),
+                )
               ],
             ),
           ),
