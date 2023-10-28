@@ -1,5 +1,6 @@
 // ignore_for_file: sized_box_for_whitespace, prefer_const_literals_to_create_immutables, prefer_const_constructors
 
+import 'package:depd/mission2.dart';
 import 'package:flutter/material.dart';
 
 class Mission1Page extends StatefulWidget {
@@ -142,6 +143,18 @@ class _Mission1PageState extends State<Mission1Page> {
               ),
             ),
           ),
+          Container(
+            alignment: Alignment.bottomRight,
+            padding: EdgeInsets.all(16.0), // Adjust the padding as needed
+            child: ElevatedButton(
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return Mission2Page();
+                }));
+              },
+              child: Text("Book Now"), // Your button label
+            ),
+          )
         ],
       ),
       floatingActionButton: Container(
